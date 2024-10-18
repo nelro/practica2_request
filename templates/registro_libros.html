@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Libros</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <!-- Incluir SweetAlert2 desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Registro de Libros</h1>
+    </header>
+    <main>
+      <form action="/registro_libros" method="POST" onsubmit="showNotification(event)">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required />
+
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" required />
+
+        <label for="resumen">Resumen:</label>
+        <textarea id="resumen" name="resumen" required></textarea>
+
+        <div class="form-group">
+            <label for="medio">Medio:</label>
+            <div class="radio-group">
+                <label for="fisico">
+                    <input type="radio" id="fisico" name="medio" value="fisico" required>
+                    Físico
+                </label>
+                <label for="magnetico">
+                    <input type="radio" id="magnetico" name="medio" value="magnetico" required>
+                    Magnético
+                </label>
+            </div>
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+    <!-- Botón de regreso -->
+    <button class="regresar-btn" onclick="window.location.href='/'">
+      Regresar al Inicio
+    </button><br><br>
+
+   
+  </body>
+</html>
+
+
+<script>
+    function showNotification(event) {
+        event.preventDefault();  // Prevenir el envío del formulario temporalmente
+        
+        // Mostrar la notificación usando SweetAlert2
+        Swal.fire({
+            title: 'Registro Exitoso',
+            text: 'Tu Libro ha sido registrado correctamente.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Enviar el formulario tras la confirmación
+                event.target.submit();
+            }
+        });
+    }
+</script>

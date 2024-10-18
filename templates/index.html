@@ -8,26 +8,24 @@
 </head>
 <body>
     <header>
-        <h1>Bienvenido a la Aplicación Web con Python y Flask</h1>
+        <h1>Bienvenido a la Aplicación Web con Python - Flask</h1>
         <nav>
             <ul>
-                <!-- Botón de inicio -->
-                <li><a href="/">Inicio</a></li>
-                
+                                
                 <!-- Enlaces a los formularios, sin desplegable -->
-                <li><a href="/inscripcion">Inscripción en Curso</a></li>
-                <li><a href="/registro_usuario">Registro de Usuario</a></li>
-                <li><a href="/registro_productos">Registro de Productos</a></li>
-                <li><a href="/registro_libros">Registro de Libros</a></li>
+                <li><a href="{{ url_for('inscripcion') }}">Inscripción en Curso</a></li>
+                <li><a href="{{url_for('registro_usuario')}}">Registro de Usuario</a></li>
+                <li><a href="{{ url_for('registro_productos') }}">Registro de Productos</a></li>
+                <li><a href="{{ url_for('registro_libros') }}">Registro de Libros</a></li>
 
                 <!-- Menú desplegable para ver los datos -->
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Ver Datos</a>
+                    <a href="#" class="dropbtn">Ver Datos Registrados</a>
                     <div class="dropdown-content">
-                        <a href="/ver_inscripciones">Ver Inscripciones</a>
-                        <a href="/ver_usuarios">Ver Usuarios</a>
-                        <a href="/ver_productos">Ver Productos</a>
-                        <a href="/ver_libros">Ver Libros</a>
+                        <a href="{{url_for('rec_dat_inscripcion')}}">Ver Inscripciones</a>
+                        <a href="{{url_for('rec_dat_regUsuario')}}">Ver Usuarios</a>
+                        <a href="{{url_for('rec_dat_regProductos')}}">Ver Productos</a>
+                        <a href="{{url_for('rec_dat_regLibros')}}">Ver Libros</a>
                     </div>
                 </li>
             </ul>
@@ -36,8 +34,9 @@
     <main>
         <h2>Seleccione una opción del menú</h2>
     </main>
-    <footer>
-        <p>&copy; 2024 Aplicación Web Flask</p>
-    </footer>
+    
 </body>
+<footer>
+    <p>&copy; 2024 Aplicación Web Flask - Autor Nelro</p>
+</footer>
 </html>

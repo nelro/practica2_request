@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Recividos de Registro de Usuario</title>
+    <link rel="stylesheet" href="../static/css/style_post.css">
+</head>
+<body>
+    <header>
+        <h1>CONFIRMACION DE REGISTRO DE USUARIO</h1>
+    </header>
+
+    <main>
+        <h3>Registros de Usuario:</h3>
+
+        <!-- Tabla para mostrar los registros -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo Electronico</th>
+                    <th>Contraseña</th>
+                </tr>
+            </thead>
+            <tbody>
+     
+                {% for item in lista_registros_usuarios %}
+                    <tr>
+                        <td>{{ loop.index0 + 1 }}</td><!-- Mostrar el índice contador -->
+                        <td>{{ item.nombre }}</td>
+                        <td>{{ item.apellidos }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.contraseña }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button class="centered-btn" onclick="window.location.href='/'">Volver al Menu</button>
+    </main>
+</body>
+</html>

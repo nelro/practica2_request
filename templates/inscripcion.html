@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscripción del Curso</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Incluir SweetAlert2 desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <h1>Inscripción del Curso</h1>
+    </header>
+    <main>
+        <form action="/inscripcion" method="POST" onsubmit="showNotification(event)">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+
+            <label for="curso">Curso:</label>
+            <select id="curso" name="curso">
+                <option value="Programacion">Programacion</option>
+                <option value="Calculo">Calculo</option>
+                <option value="Fisica">Fisica</option>
+                <option value="Quimica">Quimica</option>
+            </select>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    <!-- Botón de regreso -->
+    <button class="regresar-btn" onclick="window.location.href='/'">Regresar al Inicio</button>
+
+</body>
+</html>
+
+<script>
+    function showNotification(event) {
+        event.preventDefault();  // Prevenir el envío del formulario temporalmente
+        
+        // Mostrar la notificación usando SweetAlert2
+        Swal.fire({
+            title: 'Registro Exitoso',
+            text: 'Tu inscripción ha sido registrado correctamente.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Enviar el formulario tras la confirmación
+                event.target.submit();
+            }
+        });
+    }
+</script>

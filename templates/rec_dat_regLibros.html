@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Recividos de Registro de Libros</title>
+    <link rel="stylesheet" href="../static/css/style_post.css">
+</head>
+<body>
+    <header>
+        <h1>CONFIRMACION DE REGISTRO DE LIBRO</h1>
+    </header>
+
+    <main>
+        <h3>Registros de Libros:</h3>
+
+        <!-- Tabla para mostrar los registros -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Resumen</th>
+                    <th>Medio</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                {% for item in lis_regLibros %}
+                    <tr>
+                        <td>{{ loop.index0 + 1 }}</td><!-- Mostrar el índice contador -->
+                        <td>{{ item.titulo }}</td>
+                        <td>{{ item.autor }}</td>
+                        <td>{{ item.resumen }}</td>
+                        <td>{{ item.medio }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <button class="centered-btn" onclick="window.location.href='/'">Volver al Menu</button>
+    </main>
+</body>
+</html>
